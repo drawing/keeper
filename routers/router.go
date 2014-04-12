@@ -8,6 +8,9 @@ import (
 
 func init() {
 	beego.Router("/", &controllers.MainController{})
+
+	beego.Router("/robots.txt", &controllers.SEOController{})
+
 	beego.Router("/reading/:slug(\\S+).html", &controllers.ReadingController{})
 	beego.Router("/:classify(category|tag)/:slug(\\S+).html", &controllers.ClassifyController{})
 

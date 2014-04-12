@@ -20,11 +20,23 @@ func (this *MainController) Get() {
 		post.Content = "no main page"
 	}
 
+	var categories []models.Category
+	_, err = o.QueryTable("category").All(&categories)
+	if err == nil {
+		this.Data["Categories"] = categories
+	}
+
+	var tags []models.Tag
+	_, err = o.QueryTable("tag").All(&tags)
+	if err == nil {
+		this.Data["Tags"] = tags
+	}
+
 	this.Data["Post"] = post
 
 	this.Data["SiteTitle"] = beego.AppConfig.String("SiteTitle")
 	this.Data["SiteDesc"] = beego.AppConfig.String("SiteDesc")
 	this.Data["CDN"] = beego.AppConfig.String("CDN")
-	this.TplNames = "index.tpl"
+	this.TplNames = "reading.tpl"
 
 }
