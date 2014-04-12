@@ -54,5 +54,6 @@ func (this *ReadingController) Get() {
 	this.Data["Post"] = post
 	this.Data["SiteTitle"] = beego.AppConfig.String("SiteTitle")
 	this.Data["SiteDesc"] = beego.AppConfig.String("SiteDesc")
+	this.Data["CDN"] = beego.AppConfig.String("CDN")
 	this.TplNames = "reading.tpl"
 }

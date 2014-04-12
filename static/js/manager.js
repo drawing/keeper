@@ -222,6 +222,9 @@ var PostShowCtrl = function ($scope, req, $http, $modal, $location) {
 		}).success(
 			function(response, status, headers, config) {
 				if (response.Code == 0) {
+					if ($scope.Post.Resource == null) {
+						$scope.Post.Resource = [];
+					}
 					$scope.Post.Resource.push(response.One);
 					$scope.UploadAlert.show = true;
 					$scope.UploadAlert.type = 'success';

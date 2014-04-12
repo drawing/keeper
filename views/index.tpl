@@ -17,6 +17,22 @@ _gaq.push(['_trackPageview']);
 
 <link rel="stylesheet" href="/static/css/bootstrap.css">
 <title>{%.SiteTitle%}</title>
+<style type="text/css">
+.main {
+	color:#113;
+	margin:50px;
+}
+.footer {
+	margin:20px;
+}
+.entry {
+	background: none repeat scroll 0 0 #FFFFFF;
+	box-shadow: 0 2px 6px #CCCCCC;
+	float: left;
+	margin-bottom: 60px;
+	padding: 30px;
+}
+</style>
 </head>
 
 <body>
@@ -24,19 +40,18 @@ _gaq.push(['_trackPageview']);
 	<div class="page-header">
 		<h1>{%.SiteTitle%}<br><small class="col-md-offset-2">{%.SiteDesc%}</small></h1>
 	</div>
-	<div class="row">
-		{%range .Categories%}
-		<div class="col-sm-6 col-md-4">
-			<div class="thumbnail">
-				<img height="300" src="http://www.blender.org/wp-content/uploads/2012/11/rendering.jpg" alt="...">
-				<div class="caption">
-					<h3>{%.Name%}</h3>
-					<p>{%.Desc | markdown%}</p>
-					<p><a href="/category/{% .Slug %}.html" class="btn btn-primary" role="button">View</a></a></p>
-				</div>
+	<div class="row main">
+		<div class="col-sm-8 col-sm-offset-2 entry">
+			<p>{%.Post.Content | markdown%}</p>
+		</div>
+	</div>
+	<hr>
+	<div class="row footer">
+		<div class="container">
+			<div class="col-sm-8 col-sm-offset-2">
+				<p>Copyright@2014 <a href="mailto:cppbreak@gmail.com">cppbreak</a></p>
 			</div>
 		</div>
-		{%end%}
 	</div>
 
 </div>

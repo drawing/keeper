@@ -31,7 +31,7 @@ func (this *PostsController) Get() {
 	echo.CurPage, _ = this.GetInt("page")
 
 	o := orm.NewOrm()
-	qs := o.QueryTable("post")
+	qs := o.QueryTable("post").OrderBy("-id")
 
 	var err error
 	echo.Count, err = qs.Count()

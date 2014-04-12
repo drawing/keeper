@@ -50,7 +50,7 @@ func (this *ClassifyController) Get() {
 	var posts []*models.Post
 
 	if err == nil {
-		qs := o.QueryTable("post").Filter(classify+"_id", id)
+		qs := o.QueryTable("post").Filter(classify+"_id", id).OrderBy("-id")
 		if u == nil {
 			qs = qs.Filter("status__in", "Publish")
 		}
@@ -95,5 +95,6 @@ func (this *ClassifyController) Get() {
 
 	this.Data["SiteTitle"] = beego.AppConfig.String("SiteTitle")
 	this.Data["SiteDesc"] = beego.AppConfig.String("SiteDesc")
+	this.Data["CDN"] = beego.AppConfig.String("CDN")
 	this.TplNames = "classify.tpl"
 }

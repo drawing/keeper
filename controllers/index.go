@@ -12,17 +12,19 @@ type MainController struct {
 }
 
 func (this *MainController) Get() {
-	var categories []*models.Category
+	var post models.Post
 
 	o := orm.NewOrm()
-	_, err := o.QueryTable("category").All(&categories)
+	err := o.QueryTable("post").Filter("Slug", "main").RelatedSel().One(&post)
 	if err != nil {
-		beego.Error(err)
+		post.Content = "no main page"
 	}
 
-	this.Data["Categories"] = categories
+	this.Data["Post"] = post
 
 	this.Data["SiteTitle"] = beego.AppConfig.String("SiteTitle")
 	this.Data["SiteDesc"] = beego.AppConfig.String("SiteDesc")
+	this.Data["CDN"] = beego.AppConfig.String("CDN")
 	this.TplNames = "index.tpl"
+
 }
