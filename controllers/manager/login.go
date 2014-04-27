@@ -36,7 +36,7 @@ func (this *LoginController) Post() {
 		echo.Message = "user name or password error"
 	} else {
 		echo.Code = ERR_SUCC
-		echo.Message = "/manager/manager.html"
+		echo.Message = "/manager/index.html"
 		this.SetSession("user", user)
 
 		beego.Warn("login:", user, u)

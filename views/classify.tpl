@@ -32,6 +32,23 @@ _gaq.push(['_trackPageview']);
 	margin-bottom: 60px;
 	padding: 15px;
 }
+.item {
+	padding: 15px;
+}
+.title {
+	font-size: 18px;
+	margin: 15px 5px;
+}
+.date {
+	font-size: 16px;
+}
+.summary {
+	margin: 8px;
+}
+.summary p, .summary h1, .summary h2, .summary h3, .summary h4 {
+	font-size: 16px;
+	color: #331;
+}
 </style>
 
 </head>
@@ -48,16 +65,20 @@ _gaq.push(['_trackPageview']);
 				<center><h2> {%.Classify.Name%} </h2> </center>
 				<p>{%.Classify.Desc | markdown %}</p>
 				</blockquote>
-				<hr>
-				<table class="table table-striped">
+				<div class="item">
 					{%range .Posts%}
-					<tr>
-						<td>
-							<a href="/reading/{%.Slug%}.html">{%.Title%}</a></td><td>{%dateformat .CreateDate "2006-01-02 15:04:05"%}
-						</td>
-					</tr>
+					<hr>
+					<div class="title">
+						<b><a href="/reading/{%.Slug%}.html">{%.Title%}</a></b>
+						<div class="date pull-right">{%dateformat .CreateDate "2006-01-02 15:04:05"%}</div>
+					</div>
+					<div class="summary">
+						<p>{% .Content | brief %}</p>
+						<!-- span class="badge">ReadMore</span -->
+						<a class="pull-right" href="/reading/{%.Slug%}.html"> Continue Reading </a><br>
+					</div>
 					{%end%}
-				</table>
+				</div>
 				<ul class="pager">
 					{% if .Previous %}<li><a href="{% .Previous %}">Previous</a></li> {% end %}
 					{% if .Next %}<li><a href="{% .Next %}">Next</a></li> {% end %}

@@ -18,7 +18,7 @@ func (this *ManagerController) Get() {
 		this.Data["SiteDesc"] = beego.AppConfig.String("SiteDesc")
 		this.Data["CDN"] = beego.AppConfig.String("CDN")
 		this.TplNames = "manager/login.tpl"
-	} else if page == "manager" {
+	} else if page == "index" {
 		u := this.GetSession("user")
 		if u != nil && u.(models.User).Privilege == "super" {
 			this.Data["SiteTitle"] = beego.AppConfig.String("SiteTitle")

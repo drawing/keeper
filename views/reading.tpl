@@ -91,7 +91,7 @@ _gaq.push(['_trackPageview']);
 
 <div class="container">
 	<div class="page-header">
-		<h1><a href="/">{%.SiteTitle%}</a><br><small class="col-md-offset-2">{%.SiteDesc%}</small></h1>
+		<h1><a href="/category/{%.Post.Category.Slug%}.html" title="{%.SiteTitle%} - {%.Post.Category.Name%}">{%.SiteTitle%}</a><br><small class="col-md-offset-2">{%.SiteDesc%}</small></h1>
 	</div>
 	<div class="row">
 		<div class="col-sm-8">
