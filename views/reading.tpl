@@ -102,7 +102,21 @@ _gaq.push(['_trackPageview']);
 				<hr>
 				<p>
 				<div class="markdown">
-					{% .Post.Content | markdown %}
+					{% $status := compare .Post.Status "Friend" %}
+					{% $forbid := and $status .ForbidFriend %}
+					{% if not $forbid %}
+						{% .Post.Content | markdown %}
+					{% else %}
+						<p>
+						<form role="form" action="/reading/{%.Post.Slug%}.html" method="POST">
+							<div class="form-group">
+								<label>此文章需要密码访问，请输入密码:</label>
+								<input type="password" class="form-control" name="pass" placeholder="Enter email">
+							</div>
+							<button type="submit" class="btn btn-default">Show It!</button>
+						</form>
+						</p>
+					{% end %}
 				</div>
 				</p>
 				<div class="discuss_container">

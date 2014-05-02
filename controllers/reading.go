@@ -13,7 +13,6 @@ type ReadingController struct {
 
 func (this *ReadingController) Get() {
 	u := this.GetSession("user")
-
 	var post models.Post
 
 	post.Slug = this.GetString(":slug")
@@ -47,7 +46,7 @@ func (this *ReadingController) Get() {
 		this.Abort("404")
 	}
 
-	if u == nil && post.Status != "Publish" {
+	if u == nil && post.Status != "Publish" && post.Status != "Friend" {
 		this.Abort("404")
 	}
 
@@ -55,5 +54,20 @@ func (this *ReadingController) Get() {
 	this.Data["SiteTitle"] = beego.AppConfig.String("SiteTitle")
 	this.Data["SiteDesc"] = beego.AppConfig.String("SiteDesc")
 	this.Data["CDN"] = beego.AppConfig.String("CDN")
+
+	if u == nil && this.GetSession("pass") == nil {
+		this.Data["ForbidFriend"] = true
+	} else {
+		this.Data["ForbidFriend"] = false
+	}
+
 	this.TplNames = "reading.tpl"
+}
+
+func (this *ReadingController) Post() {
+	pass := this.GetString("pass")
+	if pass == beego.AppConfig.String("FriendPassword") {
+		this.SetSession("pass", true)
+	}
+	this.Redirect("/reading/"+this.GetString(":slug")+".html", 302)
 }

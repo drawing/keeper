@@ -73,9 +73,18 @@ _gaq.push(['_trackPageview']);
 						<div class="date pull-right">{%dateformat .CreateDate "2006-01-02 15:04:05"%}</div>
 					</div>
 					<div class="summary">
-						<p>{% .Content | brief %}</p>
-						<!-- span class="badge">ReadMore</span -->
-						<a class="pull-right" href="/reading/{%.Slug%}.html"> Continue Reading </a><br>
+						{% $status := compare .Status "Friend" %}
+						{% $forbid := and $status $.ForbidFriend %}
+						{% if not $forbid %}
+							<p>{% .Content | brief %}</p>
+							<!-- span class="badge">ReadMore</span -->
+							<a class="pull-right" href="/reading/{%.Slug%}.html"> Continue Reading </a><br>
+						{% else %}
+							<p>
+							此文章需要密码访问，
+							如得知密码，请<a href="/reading/{%.Slug%}.html">点击进入</a>输入密码！
+							</p>
+						{% end %}
 					</div>
 					{%end%}
 				</div>

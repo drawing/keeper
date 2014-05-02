@@ -175,7 +175,7 @@ var PostShowCtrl = function ($scope, req, $http, $modal, $location) {
 
 	$scope.Categories = [];
 	$scope.Tags = [];
-	$scope.PubActions = ["Publish", "Draft", "Secret"];
+	$scope.PubActions = ["Publish", "Draft", "Secret", "Friend"];
 
 	$scope.Post.Status = $scope.PubActions[0];
 	

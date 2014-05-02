@@ -15,7 +15,9 @@ type ClassifyController struct {
 
 func (this *ClassifyController) Get() {
 	u := this.GetSession("user")
+	pass := this.GetSession("pass")
 
+	var forbid_friend bool = true
 	var total int64
 	var limit int64 = 15
 	var id int64
@@ -52,7 +54,12 @@ func (this *ClassifyController) Get() {
 	if err == nil {
 		qs := o.QueryTable("post").Filter(classify+"_id", id).OrderBy("-id")
 		if u == nil {
-			qs = qs.Filter("status__in", "Publish")
+			qs = qs.Filter("status__in", "Publish", "Friend")
+			if pass != nil {
+				forbid_friend = false
+			}
+		} else {
+			forbid_friend = false
 		}
 
 		total, err = qs.Count()
@@ -96,5 +103,6 @@ func (this *ClassifyController) Get() {
 	this.Data["SiteTitle"] = beego.AppConfig.String("SiteTitle")
 	this.Data["SiteDesc"] = beego.AppConfig.String("SiteDesc")
 	this.Data["CDN"] = beego.AppConfig.String("CDN")
+	this.Data["ForbidFriend"] = forbid_friend
 	this.TplNames = "classify.tpl"
 }

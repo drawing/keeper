@@ -73,7 +73,7 @@ func (this *PostsController) Post() {
 	valid := validation.Validation{}
 	valid.MinSize(echo.One.Title, 2, "title")
 	valid.MinSize(echo.One.Slug, 3, "slug")
-	valid.Match(echo.One.Status, regexp.MustCompile("(Publish|Draft|Secret)"), "status")
+	valid.Match(echo.One.Status, regexp.MustCompile("(Publish|Draft|Secret|Friend)"), "status")
 	valid.MinSize(echo.One.Content, 3, "content")
 
 	if valid.HasErrors() {

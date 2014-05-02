@@ -53,7 +53,7 @@ var LoginCtrl = function($scope, $http) {
 <div class="row">
 	<div class="form-group col-md-4 col-md-offset-4">
 		<label for="exampleInputEmail1">Email:</label>
-		<input type="email" class="form-control" ng-model="User.Email" placeholder="Email">
+		<input type="email" class="form-control" ng-model="User.Email" placeholder="Email" name="email">
 	</div>
 </div>
 
