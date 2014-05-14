@@ -35,6 +35,9 @@ _gaq.push(['_trackPageview']);
 .item {
 	padding: 15px;
 }
+.item img {
+	width: 350px;
+}
 .title {
 	font-size: 18px;
 	margin: 15px 5px;
