@@ -16,7 +16,7 @@ var LoginCtrl = function($scope, $http) {
 	$scope.Login = function() {
 		user = $scope.User
 		if (user == null || user.Email == null || user.Password == "") {
-			alert("登录需要填写邮箱密码");
+			alert("登录需要填写邮箱PIN码");
 			return;
 		}
 		
@@ -30,7 +30,7 @@ var LoginCtrl = function($scope, $http) {
 					document.location = response.Message;
 				}
 				else {
-					alert("登录失败，请检查用户密码");
+					alert("登录失败，请检查用户PIN码");
 				}
 			}
 		).error(
@@ -59,7 +59,7 @@ var LoginCtrl = function($scope, $http) {
 
 <div class="row">
 	<div class="form-group col-md-4 col-md-offset-4">
-		<label>密码:</label>
+		<label>PIN码:</label>
 		<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" ng-model="User.Password">
 	</div>
 </div>

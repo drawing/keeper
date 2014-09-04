@@ -4,6 +4,7 @@ import (
 	"../../models"
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
+	"github.com/balasanjay/totp"
 
 	"encoding/json"
 )
@@ -31,7 +32,7 @@ func (this *LoginController) Post() {
 
 	user.Email = u.Email
 	err = o.Read(&user, "email")
-	if err != nil || user.Password != u.Password {
+	if err != nil || !totp.Authenticate([]byte(user.Password), u.Password, nil) {
 		echo.Code = ERR_LOGIN
 		echo.Message = "user name or password error"
 	} else {
