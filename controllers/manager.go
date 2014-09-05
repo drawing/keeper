@@ -14,6 +14,10 @@ func (this *ManagerController) Get() {
 	page := this.GetString(":page")
 
 	if page == "login" {
+		u := this.GetSession("user")
+		if u != nil {
+			this.DelSession("user")
+		}
 		this.Data["SiteTitle"] = beego.AppConfig.String("SiteTitle")
 		this.Data["SiteDesc"] = beego.AppConfig.String("SiteDesc")
 		this.Data["CDN"] = beego.AppConfig.String("CDN")

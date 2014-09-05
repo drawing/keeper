@@ -4,8 +4,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular-route.js"></script>
+<script src="/static/js/angular.min.js"></script>
+<script src="/static/js/angular-route.js"></script>
 <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.10.0.js"></script>
 
 <script src="http://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js"></script>
@@ -77,7 +77,7 @@
 					<li class="dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown"> 用户 <b class="caret"></b></a>
 						<ul class="dropdown-menu">
-							<li><a href="#"> 注销 </a></li>
+							<li><a href="/manager/login.html"> 注销 </a></li>
 						</ul>
 					</li>
 				</ul>
