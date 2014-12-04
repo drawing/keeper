@@ -111,7 +111,7 @@ _gaq.push(['_trackPageview']);
 						<form role="form" action="/reading/{%.Post.Slug%}.html" method="POST">
 							<div class="form-group">
 								<label>此文章需要密码访问，请输入密码:</label>
-								<input type="password" class="form-control" name="pass" placeholder="Enter email">
+								<input type="password" class="form-control" name="pass" placeholder="Enter Password">
 							</div>
 							<button type="submit" class="btn btn-default">Show It!</button>
 						</form>
