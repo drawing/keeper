@@ -55,6 +55,11 @@
 							<li><a href="#/posts"> 博文列表 </a></li>
 							<li class="divider"></li>
 							<li><a href="#/post/0"> 创建博文 </a></li>
+							<li class="divider"></li>
+							<li><a href="#/posts?status=Draft"> Draft </a></li>
+							<li><a href="#/posts?status=Secret"> Secret </a></li>
+							<li><a href="#/posts?status=Friend"> Friend </a></li>
+							<li><a href="#/posts?status=Publish"> Publish </a></li>
 						</ul>
 					</li>
 					<li class="dropdown">

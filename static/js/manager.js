@@ -13,6 +13,13 @@ angular.module('manager',
 						else {
 							req.Page = Number($route.current.params.page);
 						}
+
+						if (typeof $route.current.params.status != 'undefined') {
+							req.Status = $route.current.params.status;
+						} else {
+							req.Status = "";
+						}
+
 						return req;
 					},
 				}
@@ -118,8 +125,10 @@ var PostListCtrl = function ($scope, $http, req) {
 	
 	$scope.Pages = [];
 	$scope.CurPage = req.Page;
+	$scope.Status = req.Status;
 	$scope.PageNum = 0;
 	$scope.Count = 0;
+
 	
 	$scope.CloseAlert = function(index) {
 		$scope.Alert.show = false;
@@ -128,7 +137,7 @@ var PostListCtrl = function ($scope, $http, req) {
 	$http({
 		method: 'GET',
 		url: '/api/posts',
-		params:{page:req.Page}
+		params:{page:req.Page, status:req.Status}
 	}).success(
 		function(response, status, headers, config) {
 			if (response.Code == 0) {

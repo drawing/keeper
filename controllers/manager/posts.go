@@ -29,9 +29,16 @@ func (this *PostsController) Get() {
 	}
 
 	echo.CurPage, _ = this.GetInt("page")
+	query_status := this.GetString("status")
 
 	o := orm.NewOrm()
-	qs := o.QueryTable("post").OrderBy("-id")
+	qs := o.QueryTable("post")
+
+	if query_status != "" {
+		qs = qs.Filter("Status", query_status)
+	}
+
+	qs = qs.OrderBy("-id")
 
 	var err error
 	echo.Count, err = qs.Count()
