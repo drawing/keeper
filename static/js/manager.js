@@ -1,5 +1,5 @@
 angular.module('manager',
-		['ui.bootstrap', 'ngRoute', 'ui.ace'],
+		['ui.bootstrap', 'ngRoute', 'ui.codemirror'],
 		function($routeProvider) {
 			$routeProvider.when("/posts", {
 				templateUrl: 'PostList.html',
@@ -182,6 +182,12 @@ var PostShowCtrl = function ($scope, req, $http, $modal, $location) {
 	$scope.ErrorMsg = [];
 	$scope.Alert = new Object();
 	$scope.UploadAlert = new Object();
+
+	$scope.EditorOptions = {
+		lineWrapping : true,
+		lineNumbers: true,
+		mode: 'markdown',
+	};
 	
 	$scope.SelectFile = "";
 

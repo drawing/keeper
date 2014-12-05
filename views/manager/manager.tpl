@@ -8,8 +8,11 @@
 <script src="/static/js/angular-route.js"></script>
 <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.10.0.js"></script>
 
-<script src="http://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js"></script>
-<script src="/static/js/ui-ace.js"></script>
+<script src="/static/js/codemirror.js"></script>
+<script src="/static/js/ui-codemirror.js"></script>
+<script src="/static/js/markdown.js"></script>
+
+<link rel="stylesheet" href="/static/css/codemirror.css">
 
 <script src="/static/js/manager.js"></script>
 <!-- link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" -->
@@ -139,7 +142,7 @@
 		<form class="col-sm-12">
 			<input type="text" class="form-control" placeholder="Title" ng-model="Post.Title">
 			<hr>
-			<div ui-ace="{theme:'twilight', mode: 'markdown', useWrapMode : true}" ng-model="Post.Content"></div>
+			<textarea ui-codemirror ui-codemirror-opts="EditorOptions" ng-model="Post.Content"></textarea>
 		</form>
 
 		<div class="col-sm-6">
