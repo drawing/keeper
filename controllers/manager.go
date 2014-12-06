@@ -22,17 +22,15 @@ func (this *ManagerController) Get() {
 		this.Data["SiteDesc"] = beego.AppConfig.String("SiteDesc")
 		this.Data["CDN"] = beego.AppConfig.String("CDN")
 		this.TplNames = "manager/login.tpl"
-	} else if page == "index" {
+	} else {
 		u := this.GetSession("user")
 		if u != nil && u.(models.User).Privilege == "super" {
 			this.Data["SiteTitle"] = beego.AppConfig.String("SiteTitle")
 			this.Data["SiteDesc"] = beego.AppConfig.String("SiteDesc")
 			this.Data["CDN"] = beego.AppConfig.String("CDN")
-			this.TplNames = "manager/manager.tpl"
+			this.TplNames = "manager/" + page + ".tpl"
 		} else {
 			this.Redirect("/manager/login.html", 302)
 		}
-	} else {
-		this.Abort("404")
 	}
 }

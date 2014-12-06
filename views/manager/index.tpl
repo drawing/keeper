@@ -6,7 +6,7 @@
 
 <script src="/static/js/angular.min.js"></script>
 <script src="/static/js/angular-route.js"></script>
-<script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.10.0.js"></script>
+<script src="/static/js/ui-bootstrap-tpls-0.10.0.js"></script>
 
 <script src="/static/js/codemirror.js"></script>
 <script src="/static/js/ui-codemirror.js"></script>

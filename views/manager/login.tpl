@@ -6,9 +6,9 @@
 
 <title>{% .SiteTitle %} - 登录</title>
 <script src="/static/js/angular.min.js"></script>
-<script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.10.0.js"></script>
+<script src="/static/js/ui-bootstrap-tpls-0.10.0.js"></script>
 
-<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+<link rel="stylesheet" href="/static/css/bootstrap.min.css">
 <script>
 var LoginCtrl = function($scope, $http) {
 	$scope.User = new Object();
