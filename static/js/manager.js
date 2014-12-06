@@ -2,7 +2,7 @@ angular.module('manager',
 		['ui.bootstrap', 'ngRoute', 'ui.codemirror'],
 		function($routeProvider) {
 			$routeProvider.when("/posts", {
-				templateUrl: 'PostList.html',
+				templateUrl: '/manager/post_list.html',
 				controller: PostListCtrl,
 				resolve: {
 					req: function ($route) {
@@ -24,7 +24,7 @@ angular.module('manager',
 					},
 				}
 			}).when("/post/:id", {
-				templateUrl: 'PostShow.html',
+				templateUrl: '/manager/post_show.html',
 				controller: PostShowCtrl,
 				resolve: {
 					req: function ($route) {
@@ -34,7 +34,7 @@ angular.module('manager',
 					},
 				}
 			}).when("/users", {
-				templateUrl: 'UserList.html',
+				templateUrl: '/manager/user_list.html',
 				controller: ShortListCtrl,
 				resolve: {
 					req: function ($route) {
@@ -47,7 +47,7 @@ angular.module('manager',
 					},
 				}
 			}).when("/user/:id", {
-				templateUrl: 'UserShow.html',
+				templateUrl: '/manager/user_show.html',
 				controller: ShortListCtrl,
 				resolve: {
 					req: function ($route) {
@@ -60,7 +60,7 @@ angular.module('manager',
 					},
 				}
 			}).when("/categories", {
-				templateUrl: 'CategoryList.html',
+				templateUrl: '/manager/category_list.html',
 				controller: ShortListCtrl,
 				resolve: {
 					req: function ($route) {
@@ -73,7 +73,7 @@ angular.module('manager',
 					},
 				}
 			}).when("/category/:id", {
-				templateUrl: 'CategoryShow.html',
+				templateUrl: '/manager/category_show.html',
 				controller: ShortListCtrl,
 				resolve: {
 					req: function ($route) {
@@ -86,7 +86,7 @@ angular.module('manager',
 					},
 				}
 			}).when("/tags", {
-				templateUrl: '/manager/tags_list.html',
+				templateUrl: '/manager/category_list.html',
 				controller: ShortListCtrl,
 				resolve: {
 					req: function ($route) {
@@ -99,7 +99,7 @@ angular.module('manager',
 					},
 				}
 			}).when("/tag/:id", {
-				templateUrl: 'tags_show.html',
+				templateUrl: '/manager/category_show.html',
 				controller: ShortListCtrl,
 				resolve: {
 					req: function ($route) {
@@ -482,5 +482,4 @@ var ShortListCtrl = function ($scope, $http, req) {
 };
 
 var MainCtrl = function($scope) {
-	
 }

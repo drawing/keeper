@@ -18,7 +18,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-4 control-label">介绍:</label>
+				<label class="col-sm-4 control-label">Desc:</label>
 				<div class="col-sm-6">
 					<textarea class="form-control" rows="3" placeholder="Support Markdown" ng-model="One.Desc"></textarea>
 					<br>
