@@ -86,7 +86,7 @@ angular.module('manager',
 					},
 				}
 			}).when("/tags", {
-				templateUrl: 'CategoryList.html',
+				templateUrl: '/manager/tags_list.html',
 				controller: ShortListCtrl,
 				resolve: {
 					req: function ($route) {
@@ -99,7 +99,7 @@ angular.module('manager',
 					},
 				}
 			}).when("/tag/:id", {
-				templateUrl: 'CategoryShow.html',
+				templateUrl: 'tags_show.html',
 				controller: ShortListCtrl,
 				resolve: {
 					req: function ($route) {
