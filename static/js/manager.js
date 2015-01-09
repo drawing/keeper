@@ -309,8 +309,8 @@ var PostShowCtrl = function ($scope, req, $http, $modal, $location) {
 					
 					$scope.Req.Desc = "编辑";
 
-					$scope.ContentForm.$dirty = false;
-					$scope.CategoryForm.$dirty = false;
+					$scope.ContentForm.$setPristine();
+					$scope.CategoryForm.$setPristine();
 				}
 				else {
 					$scope.Alert.show = true;
