@@ -197,6 +197,25 @@ var PostShowCtrl = function ($scope, req, $http, $modal, $location) {
 		lineNumbers: true,
 		mode: 'markdown',
 	};
+
+	window.onbeforeunload = function(event) {
+		var message = 'You sure you want to discard all changes?';
+		if (typeof event == 'undefined') {
+			event = window.event;
+		}
+		if (event) {
+			event.returnValue = message;
+		}
+		return message;
+	}
+	$scope.$on('$destroy', function() {
+		window.onbeforeunload = function() {};
+	});
+	$scope.$on('$locationChangeStart', function(event, next, current) {
+		if(!confirm("Are you sure you want to leave this page?")) {
+			event.preventDefault();
+		}
+	});
 	
 	$scope.SelectFile = "";
 
