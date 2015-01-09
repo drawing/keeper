@@ -199,6 +199,10 @@ var PostShowCtrl = function ($scope, req, $http, $modal, $location) {
 	};
 
 	window.onbeforeunload = function(event) {
+		if (!$scope.ContentForm.$dirty && !$scope.CategoryForm.$dirty) {
+			return;
+		}
+
 		var message = 'You sure you want to discard all changes?';
 		if (typeof event == 'undefined') {
 			event = window.event;
@@ -212,6 +216,9 @@ var PostShowCtrl = function ($scope, req, $http, $modal, $location) {
 		window.onbeforeunload = function() {};
 	});
 	$scope.$on('$locationChangeStart', function(event, next, current) {
+		if (!$scope.ContentForm.$dirty && !$scope.CategoryForm.$dirty) {
+			return;
+		}
 		if(!confirm("Are you sure you want to leave this page?")) {
 			event.preventDefault();
 		}
@@ -301,6 +308,9 @@ var PostShowCtrl = function ($scope, req, $http, $modal, $location) {
 					$scope.Alert.msg = "保存成功";
 					
 					$scope.Req.Desc = "编辑";
+
+					$scope.ContentForm.$dirty = false;
+					$scope.CategoryForm.$dirty = false;
 				}
 				else {
 					$scope.Alert.show = true;

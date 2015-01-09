@@ -5,18 +5,18 @@
 	<div class="panel-body form-horizontal">
 		<alert ng-if="Alert.show" type="Alert.type" close="CloseAlert(false, $index)">{{Alert.msg}}</alert>
 		
-		<form class="col-sm-12">
-			<input type="text" class="form-control" placeholder="Title" ng-model="Post.Title">
+		<form class="col-sm-12" name="ContentForm">
+			<input type="text" class="form-control" placeholder="Title" ng-model="Post.Title" ng-change="CloseAlert()">
 			<hr>
-			<textarea ui-codemirror ui-codemirror-opts="EditorOptions" ng-model="Post.Content"></textarea>
+			<textarea ui-codemirror ui-codemirror-opts="EditorOptions" ng-model="Post.Content" ng-change="CloseAlert()"></textarea>
 		</form>
 
 		<div class="col-sm-6">
-			<form class="form-horizontal" role="form">
+			<form class="form-horizontal" role="form" name="CategoryForm">
 				<div class="form-group">
 						<label class="control-label col-sm-4">Custom URL:</label>
 						<div class="col-sm-8">
-							<input type="text" class="form-control" placeholder="Custom URL" ng-model="Post.Slug">
+							<input type="text" class="form-control" placeholder="Custom URL" ng-model="Post.Slug" ng-change="CloseAlert()">
 						</div>
 				</div>
 				<div class="form-group">
