@@ -48,6 +48,8 @@ func init() {
 	orm.RegisterModel(new(Resource))
 	orm.RegisterModel(new(Post))
 
+	orm.RegisterModel(new(Widget))
+
 	// ./keeper orm syncdb --help
 	// ./keeper orm syncdb -force=true -v
 	orm.RunCommand()
