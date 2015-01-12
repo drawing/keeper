@@ -4,7 +4,6 @@ import (
 	"../../models"
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
-	"github.com/astaxie/beego/validation"
 )
 
 type WidgetController struct {
@@ -23,12 +22,12 @@ func (this *WidgetController) Get() {
 		return
 	}
 
-	echo.Family, _ = this.GetString(":family")
+	echo.Family = this.GetString(":family")
 
 	o := orm.NewOrm()
 	qs := o.QueryTable("post").Filter("family", echo.Family)
 
-	cnt, err = qs.Count()
+	cnt, err := qs.Count()
 	if err != nil {
 		echo.Code = ERR_SQL
 		echo.Message = err.Error()

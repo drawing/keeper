@@ -55,10 +55,9 @@ type ResourceEcho struct {
 	One     models.Resource
 }
 
-type ScheduleEcho struct {
+type WidgetEcho struct {
 	Code    int
 	Message string
-	Family	string
-	Sched   models.ScheduleEcho
+	Family  string
+	Sched   models.Schedule
 }
-
