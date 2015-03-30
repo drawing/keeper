@@ -85,7 +85,7 @@ func (this *UsersController) Put() {
 		return
 	}
 
-	echo.One.Id, _ = this.GetInt("Id")
+	echo.One.Id, _ = this.GetInt64("Id")
 	echo.One.Name = this.GetString("Name")
 	echo.One.Email = this.GetString("Email")
 	echo.One.Privilege = this.GetString("Privilege")

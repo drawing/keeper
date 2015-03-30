@@ -54,10 +54,3 @@ type ResourceEcho struct {
 	Message string
 	One     models.Resource
 }
-
-type WidgetEcho struct {
-	Code    int
-	Message string
-	Family  string
-	Sched   models.Schedule
-}

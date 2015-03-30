@@ -23,6 +23,4 @@ func init() {
 	beego.Router("/api/tags", &manager.TagsController{})
 	beego.Router("/api/users", &manager.UsersController{})
 	beego.Router("/api/resource", &manager.ResourceController{})
-
-	beego.Router("/api/widget", &manager.WidgetController{})
 }

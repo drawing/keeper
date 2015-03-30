@@ -26,7 +26,7 @@ func (this *PostController) Get() {
 		return
 	}
 
-	echo.One.Id, _ = this.GetInt(":id")
+	echo.One.Id, _ = this.GetInt64(":id")
 
 	o := orm.NewOrm()
 	err := o.QueryTable("post").Filter("Id", echo.One.Id).RelatedSel().One(&echo.One)
@@ -72,7 +72,7 @@ func (this *PostController) Put() {
 
 	o := orm.NewOrm()
 
-	echo.One.Id, _ = this.GetInt(":id")
+	echo.One.Id, _ = this.GetInt64(":id")
 	author := u.(models.User)
 	echo.One.Author = &author
 

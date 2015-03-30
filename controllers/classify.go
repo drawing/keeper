@@ -64,7 +64,7 @@ func (this *ClassifyController) Get() {
 
 		total, err = qs.Count()
 
-		qs = qs.Limit(limit, page*limit)
+		qs = qs.Limit(limit, page*int(limit))
 		if err == nil {
 			_, err = qs.All(&posts)
 		}
@@ -96,7 +96,7 @@ func (this *ClassifyController) Get() {
 	if page >= 1 {
 		this.Data["Previous"] = "/" + classify + "/" + slug + ".html?page=" + strconv.Itoa(int(page-1))
 	}
-	if page < page_num {
+	if int64(page) < page_num {
 		this.Data["Next"] = "/" + classify + "/" + slug + ".html?page=" + strconv.Itoa(int(page+1))
 	}
 

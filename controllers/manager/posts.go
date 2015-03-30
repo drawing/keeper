@@ -28,7 +28,7 @@ func (this *PostsController) Get() {
 		return
 	}
 
-	echo.CurPage, _ = this.GetInt("page")
+	echo.CurPage, _ = this.GetInt64("page")
 	query_status := this.GetString("status")
 
 	o := orm.NewOrm()

@@ -31,7 +31,7 @@ func (this *ResourceController) Post() {
 	echo.One.Post = new(models.Post)
 
 	var err error
-	echo.One.Post.Id, err = this.GetInt("PostId")
+	echo.One.Post.Id, err = this.GetInt64("PostId")
 	if err != nil || echo.One.Post.Id == 0 {
 		echo.Code = ERR_INPUT
 		echo.Message = "post id error"

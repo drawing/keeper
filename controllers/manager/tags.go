@@ -80,7 +80,7 @@ func (this *TagsController) Put() {
 		return
 	}
 
-	echo.One.Id, _ = this.GetInt("Id")
+	echo.One.Id, _ = this.GetInt64("Id")
 	echo.One.Name = this.GetString("Name")
 	echo.One.Slug = this.GetString("Slug")
 	echo.One.Desc = this.GetString("Desc")
