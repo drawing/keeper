@@ -24,7 +24,7 @@
 			</table>
 			<ul class="pagination">
 				<li class="disabled"><a>&laquo;</a></li>
-				<li ng-repeat="Page in Pages" ng-class="{active: $index==CurPage}"><a href="#/posts?page={{Page}}"> {{Page+1}} <span class="sr-only">(current)</span></a></li>
+				<li ng-repeat="Page in Pages" ng-class="{active: Page==CurPage}"><a href="#/posts?page={{Page}}"> {{Page+1}} <span class="sr-only">(current)</span></a></li>
 				<li class="disabled"><a>&raquo;</a></li>
 			</ul>
 		</div>
