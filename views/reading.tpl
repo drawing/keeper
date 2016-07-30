@@ -119,9 +119,7 @@ _gaq.push(['_trackPageview']);
 					{% end %}
 				</div>
 				</p>
-				<div class="discuss_container">
-					<div id="disqus_thread"></div>
-				</div>
+				<div class="ds-thread" data-thread-key="{%.Post.Id%}" data-title="{%.Post.Title%}"></div>
 			</div>
 		</div>
 		<div class="col-sm-4">
@@ -154,12 +152,15 @@ _gaq.push(['_trackPageview']);
 </div>
 
 <script type="text/javascript">
-	var disqus_shortname = 'fancymore';
-	(function() {
- 		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
- 		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
- 		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
- 	})();
+var duoshuoQuery = {short_name:"{%.SiteCommentConfig%}"};
+(function() {
+	var ds = document.createElement('script');
+	ds.type = 'text/javascript';ds.async = true;
+	ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	ds.charset = 'UTF-8';
+	(document.getElementsByTagName('head')[0] 
+	 || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
 </script>
 </body>
 </html>

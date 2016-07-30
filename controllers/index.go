@@ -3,9 +3,10 @@ package controllers
 import (
 	"../models"
 
+	"strconv"
+
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
-	"strconv"
 )
 
 type MainController struct {
@@ -94,5 +95,5 @@ func (this *MainController) Get() {
 	this.Data["SiteDesc"] = beego.AppConfig.String("SiteDesc")
 	this.Data["CDN"] = beego.AppConfig.String("CDN")
 	this.Data["ForbidFriend"] = forbid_friend
-	this.TplNames = "classify.tpl"
+	this.TplName = "classify.tpl"
 }

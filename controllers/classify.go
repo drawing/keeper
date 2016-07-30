@@ -104,5 +104,5 @@ func (this *ClassifyController) Get() {
 	this.Data["SiteDesc"] = beego.AppConfig.String("SiteDesc")
 	this.Data["CDN"] = beego.AppConfig.String("CDN")
 	this.Data["ForbidFriend"] = forbid_friend
-	this.TplNames = "classify.tpl"
+	this.TplName = "classify.tpl"
 }

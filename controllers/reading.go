@@ -53,6 +53,7 @@ func (this *ReadingController) Get() {
 	this.Data["Post"] = post
 	this.Data["SiteTitle"] = beego.AppConfig.String("SiteTitle")
 	this.Data["SiteDesc"] = beego.AppConfig.String("SiteDesc")
+	this.Data["SiteCommentConfig"] = beego.AppConfig.String("SiteCommentConfig")
 	this.Data["CDN"] = beego.AppConfig.String("CDN")
 
 	if u == nil && this.GetSession("pass") == nil {
@@ -61,7 +62,7 @@ func (this *ReadingController) Get() {
 		this.Data["ForbidFriend"] = false
 	}
 
-	this.TplNames = "reading.tpl"
+	this.TplName = "reading.tpl"
 }
 
 func (this *ReadingController) Post() {

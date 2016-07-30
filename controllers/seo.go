@@ -11,7 +11,7 @@ type SEOController struct {
 }
 
 func (this *SEOController) Get() {
-	if this.Ctx.Input.Uri() == "/robots.txt" {
+	if this.Ctx.Input.URI() == "/robots.txt" {
 		if this.robots == nil {
 			robots_string := "User-agent: *\n"
 			robots_string += "Disallow: /upload/\n"

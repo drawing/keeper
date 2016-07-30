@@ -16,7 +16,7 @@ type LoginController struct {
 func (this *LoginController) Post() {
 	echo := new(LoginEcho)
 	this.Data["json"] = echo
-	defer this.ServeJson()
+	defer this.ServeJSON()
 
 	var user models.User
 	var u models.User

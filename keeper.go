@@ -3,10 +3,11 @@ package main
 import (
 	_ "./routers"
 
-	"github.com/astaxie/beego"
-	"github.com/russross/blackfriday"
 	"html/template"
 	"unicode/utf8"
+
+	"github.com/astaxie/beego"
+	"github.com/russross/blackfriday"
 )
 
 func markdown(input string) template.HTML {
@@ -66,8 +67,8 @@ func markdown_brief(input string) template.HTML {
 }
 
 func main() {
-	beego.TemplateLeft = "{%"
-	beego.TemplateRight = "%}"
+	beego.BConfig.WebConfig.TemplateLeft = "{%"
+	beego.BConfig.WebConfig.TemplateRight = "%}"
 
 	beego.SetStaticPath("/keep", "upload")
 	beego.AddFuncMap("markdown", markdown)

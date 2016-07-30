@@ -14,7 +14,7 @@ type TagsController struct {
 func (this *TagsController) Get() {
 	echo := new(TagEcho)
 	this.Data["json"] = echo
-	defer this.ServeJson()
+	defer this.ServeJSON()
 
 	u := this.GetSession("user")
 	if u == nil || u.(models.User).Privilege != "super" {
@@ -34,7 +34,7 @@ func (this *TagsController) Get() {
 func (this *TagsController) Post() {
 	echo := new(TagEcho)
 	this.Data["json"] = echo
-	defer this.ServeJson()
+	defer this.ServeJSON()
 
 	u := this.GetSession("user")
 	if u == nil || u.(models.User).Privilege != "super" {
@@ -71,7 +71,7 @@ func (this *TagsController) Post() {
 func (this *TagsController) Put() {
 	echo := new(TagEcho)
 	this.Data["json"] = echo
-	defer this.ServeJson()
+	defer this.ServeJSON()
 
 	u := this.GetSession("user")
 	if u == nil || u.(models.User).Privilege != "super" {

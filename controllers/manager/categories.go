@@ -14,7 +14,7 @@ type CategoriesController struct {
 func (this *CategoriesController) Get() {
 	echo := new(CategoryEcho)
 	this.Data["json"] = echo
-	defer this.ServeJson()
+	defer this.ServeJSON()
 
 	u := this.GetSession("user")
 	if u == nil || u.(models.User).Privilege != "super" {
@@ -34,7 +34,7 @@ func (this *CategoriesController) Get() {
 func (this *CategoriesController) Post() {
 	echo := new(CategoryEcho)
 	this.Data["json"] = echo
-	defer this.ServeJson()
+	defer this.ServeJSON()
 
 	u := this.GetSession("user")
 	if u == nil || u.(models.User).Privilege != "super" {
@@ -71,7 +71,7 @@ func (this *CategoriesController) Post() {
 func (this *CategoriesController) Put() {
 	echo := new(CategoryEcho)
 	this.Data["json"] = echo
-	defer this.ServeJson()
+	defer this.ServeJSON()
 
 	u := this.GetSession("user")
 	if u == nil || u.(models.User).Privilege != "super" {

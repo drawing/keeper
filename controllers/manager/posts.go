@@ -19,7 +19,7 @@ func (this *PostsController) Get() {
 
 	echo := new(PostEcho)
 	this.Data["json"] = echo
-	defer this.ServeJson()
+	defer this.ServeJSON()
 
 	u := this.GetSession("user")
 	if u == nil || u.(models.User).Privilege != "super" {
@@ -61,7 +61,7 @@ func (this *PostsController) Get() {
 func (this *PostsController) Post() {
 	echo := new(PostEcho)
 	this.Data["json"] = echo
-	defer this.ServeJson()
+	defer this.ServeJSON()
 
 	u := this.GetSession("user")
 	if u == nil || u.(models.User).Privilege != "super" {

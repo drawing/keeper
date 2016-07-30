@@ -18,7 +18,7 @@ type ResourceController struct {
 func (this *ResourceController) Post() {
 	echo := new(ResourceEcho)
 	this.Data["json"] = echo
-	defer this.ServeJson()
+	defer this.ServeJSON()
 
 	u := this.GetSession("user")
 	if u == nil || u.(models.User).Privilege != "super" {

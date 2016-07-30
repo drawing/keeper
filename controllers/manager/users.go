@@ -16,7 +16,7 @@ type UsersController struct {
 func (this *UsersController) Get() {
 	echo := new(UserEcho)
 	this.Data["json"] = echo
-	defer this.ServeJson()
+	defer this.ServeJSON()
 
 	u := this.GetSession("user")
 	if u == nil || u.(models.User).Privilege != "super" {
@@ -37,7 +37,7 @@ func (this *UsersController) Get() {
 func (this *UsersController) Post() {
 	echo := new(UserEcho)
 	this.Data["json"] = echo
-	defer this.ServeJson()
+	defer this.ServeJSON()
 
 	u := this.GetSession("user")
 	if u == nil || u.(models.User).Privilege != "super" {
@@ -76,7 +76,7 @@ func (this *UsersController) Post() {
 func (this *UsersController) Put() {
 	echo := new(UserEcho)
 	this.Data["json"] = echo
-	defer this.ServeJson()
+	defer this.ServeJSON()
 
 	u := this.GetSession("user")
 	if u == nil || u.(models.User).Privilege != "super" {
