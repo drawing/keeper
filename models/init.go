@@ -1,6 +1,9 @@
 package models
 
 import (
+	"log"
+	"os"
+
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
 	_ "github.com/mattn/go-sqlite3"
@@ -51,4 +54,21 @@ func init() {
 	// ./keeper orm syncdb --help
 	// ./keeper orm syncdb -force=true -v
 	orm.RunCommand()
+
+	// ./keeper initdb
+	if len(os.Args) < 2 || os.Args[1] != "initdb" {
+		return
+	}
+	user := User{}
+	user.Email = "init@fancymore.com"
+	user.Name = "init"
+	user.Password = "ebb2fb8bdd8f9e797dd5f7250d347f5d"
+	user.Privilege = "super"
+	o := orm.NewOrm()
+	_, err := o.Insert(&user)
+	if err != nil {
+		log.Fatalln("insert init user failed:", err)
+	} else {
+		log.Fatalln("insert init user succ!")
+	}
 }

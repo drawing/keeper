@@ -235,6 +235,7 @@ var PostShowCtrl = function ($scope, req, $http, $modal, $location) {
 
 	$scope.setFile = function (elem) {
 		$scope.RealFile = elem.files[0];
+		$scope.SelectFile = $scope.RealFile.name;
 	};
 			
 	$scope.Upload = function () {

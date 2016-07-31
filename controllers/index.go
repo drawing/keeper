@@ -28,7 +28,7 @@ func (this *MainController) Get() {
 	}
 
 	classify := "category"
-	slug := "program"
+	slug := beego.AppConfig.String("SiteDefaultCategory")
 
 	o := orm.NewOrm()
 

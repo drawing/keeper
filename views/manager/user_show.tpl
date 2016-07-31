@@ -29,9 +29,16 @@
 			<div class="form-group">
 				<label class="col-sm-4 control-label">Password:</label>
 				<div class="col-sm-6">
-					<input type="text" class="form-control" placeholder="Password" ng-model="One.Password" required><br>
+					<input type="text" class="form-control" placeholder="Password" ng-model="One.Password" required>
 				</div>
 			</div>
+			<div class="form-group">
+				<label class="col-sm-4 control-label">一次性密码:</label>
+				<div class="col-sm-6">
+					<img height="250" width="250" src="/qrcode/qr?secret={{One.Password}}&issuer={{One.Name}}"></img>
+				</div>
+			</div>
+			<br>
 			<div class="form-group">
 				<div class="col-sm-offset-4">
 					<button class="btn btn-primary col-sm-4" ng-click="SaveElement()"> Save </button>
