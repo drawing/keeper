@@ -13,6 +13,8 @@ _gaq.push(['_trackPageview']);
  })();
 </script>
 
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <link rel="stylesheet" href="/static/css/bootstrap.css">
 
